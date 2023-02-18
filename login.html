@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      /* styles for the body */
+      body {
+        background-color: #f2f2f2;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* styles for the form */
+      form {
+        width: 400px;
+        margin: auto;
+        text-align: center;
+        padding: 30px;
+        background-color: #fff;
+        box-shadow: 0 0 10px #ddd;
+        border-radius: 10px;
+      }
+
+      /* styles for the form header */
+      h2 {
+        margin-top: 0;
+        margin-bottom: 50px;
+        font-weight: normal;
+        color: blue;
+      }
+
+      /* styles for the form inputs */
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 18px;
+        box-shadow: inset 0 0 10px #ddd;
+      }
+
+      /* styles for the submit button */
+      input[type="submit"] {
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+        background-color: blue;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      /* styles for error messages */
+      .error {
+        color: red;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h2>Sign Up</h2>
+      <input type="text" placeholder="Full Name" id="fullname" required />
+      <input type="email" placeholder="Email" id="email" required />
+      <input type="password" placeholder="Password" id="password" required />
+      <input type="submit" value="Submit" onclick="return validate()" />
+      <p class="error" id="error"></p>
+    </form>
+
+    <script>
+      function validate() {
+        var fullname = document.getElementById("fullname").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        if (fullname && email && password) {
+          return true;
+        } else {
+          document.getElementById("error").innerHTML = "Error: All fields are required";
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

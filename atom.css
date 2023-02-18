@@ -140,3 +140,68 @@
     margin-top: 65px;
   }
 }
+iframe {
+  border: 10px double #000; /* add a double border with a width of 10px and color #000 */
+  border-radius: 40px; /* round the corners of the border with a radius of 40px */
+  box-shadow: 10px 10px 20px #333; /* add a drop shadow with a spread of 20px and color #333 */
+  overflow: hidden; /* hide any content that overflows the iframe */
+  position: relative; /* make it possible to position elements relative to the iframe */
+  width: 1430px;
+  height: 800px;
+}
+iframe:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(to bottom right, #fff, #ccc); /* add a gradient background */
+  border-radius: 40px; /* round the corners of the gradient background */
+  transform: rotate(45deg); /* rotate the gradient background by 45 degrees */
+}
+
+iframe:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: radial-gradient(ellipse at center, #fff 0%, #ccc 100%); /* add a radial gradient background */
+  border-radius: 35px; /* round the corners of the radial gradient background */
+  transform: rotate(-45deg); /* rotate the radial gradient background by -45 degrees */
+}
+
+@media (max-width: 640px){
+  iframe{
+  height: 800px /*whatever you need, to make the scrollbar hide on testing, and the content of the iframe reveal (on mobile/phone or other target devices) */
+}
+  }
+  @media (max-width: 420px){
+  iframe{
+  height: 1600px /*and so on until and as needed */
+  }
+  }
+
+/*.myIframe {
+  position: relative;
+  padding-bottom: 65.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; 
+  border: solid black 1px;
+}
+
+.myIframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 1430px;
+  max-height: 800x;
+}*/
