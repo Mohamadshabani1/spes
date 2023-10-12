@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>حاسبة قوانين الغاز</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .calculator {
+      display: flex;
+      flex-direction: column;
+      margin: 0 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .calculators {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="calculators">
+      <div class="calculator">
+        <h2>حاسبة قانون بويل</h2>
+        <form>
+          <label for="initialPressure">الضغط الأولي (P<sub>1</sub>):</label>
+          <input type="number" id="initialPressure" step="0.01" min="0" required>
+          <label for="initialVolume">الحجم الأولي (V<sub>1</sub>):</label>
+          <input type="number" id="initialVolume" step="0.01" min="0" required>
+          <label for="finalPressure">الضغط النهائي (P<sub>2</sub>):</label>
+          <input type="number" id="finalPressure" step="0.01" min="0" required>
+          <label for="finalVolume">الحجم النهائي (V<sub>2</sub>):</label>
+          <input type="number" id="finalVolume" step="0.01" min="0" required>
+          <button onclick="calculateBoylesLaw()">حساب</button>
+        </form>
+        <div id="boylesResult" class="result"></div>
+      </div>
+
+      <div class="calculator">
+        <h2>حاسبة قانون الغاز المثالي</h2>
+        <form>
+          <label for="pressure">الضغط (P):</label>
+          <input type="number" id="pressure" step="0.01" min="0" required>
+          <label for="volume">الحجم (V):</label>
+          <input type="number" id="volume" step="0.01" min="0" required>
+          <label for="temperature">الحرارة (T):</label>
+          <input type="number" id="temperature" step="0.01" min="0" required>
+          <label for="moles">عدد المولات (n):</label>
+          <input type="number" id="moles" step="0.01" min="0" required>
+          <label for="constant">الثابت العام للغاز (R):</label>
+          <input type="number" id="constant" step="0.01" min="0" required>
+          <button onclick="calculateIdealGasLaw()">حساب</button>
+        </form>
+        <div id="idealGasResult" class="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateBoylesLaw() {
+      var initialPressure = parseFloat(document.getElementById("initialPressure").value);
+      var initialVolume = parseFloat(document.getElementById("initialVolume").value);
+      var finalPressure = parseFloat(document.getElementById("finalPressure").value);
+      var finalVolume = parseFloat(document.getElementById("finalVolume").value);
+
+      var result = (initialPressure * initialVolume) / (finalPressure * finalVolume);
+
+      document.getElementById("boylesResult").innerHTML = "<strong>النتيجة:</strong> " + result.toFixed(2);
+    }
+
+    function calculateIdealGasLaw() {
+      var pressure = parseFloat(document.getElementById("pressure").value);
+      var volume = parseFloat(document.getElementById("volume").value);
+      var temperature = parseFloat(document.getElementById("temperature").value);
+      var moles = parseFloat(document.getElementById("moles").value);
+      var constant = parseFloat(document.getElementById("constant").value);
+
+      var result = (pressure * volume) / (moles * constant * temperature);
+
+      document.getElementById("idealGasResult").innerHTML = "<strong>النتيجة:</strong> " + result.toFixed(2);
+    }
+  </script>
+</body>
+</html>
