@@ -18247,6 +18247,10 @@
         width: 1430px;
         height: 800px;
       }
+
+      footer{
+        width: 100%;
+      }
     }
 
     .iframe-container {

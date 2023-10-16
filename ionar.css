@@ -18401,4 +18401,35 @@
         padding-top: 100%; /* 1:1 aspect ratio for mobile devices */
       }
     }
+
+
+    @media (max-width: 640px){
+      iframe{
+      height: 800px /*whatever you need, to make the scrollbar hide on testing, and the content of the iframe reveal (on mobile/phone or other target devices) */
+    }
+    }
+    
+    @media (max-width: 420px){
+    iframe{
+    height: 1600px /*and so on until and as needed */
+    }
+    }
+    
+    @media (max-width: 1040px){
+      iframe{
+        width: 700px;
+        height: 600px;
+      }
+    }
+    
+    @media (max-width: 500px){
+      iframe{
+        width: 350px;
+        height: 500px;
+      }
+    
+      footer{
+        width: 100%;
+      }
+    }
     
